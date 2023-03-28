@@ -1,0 +1,46 @@
+import kivy
+from kivy.app import App
+from kivy.uix.button import Button
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.label import Label
+
+class MyApp(App):
+    def build(self):
+        # создаем вертикальный BoxLayout
+        layout = BoxLayout(orientation='vertical')
+
+        # добавляем название приложения и кнопку настроек в верхнюю часть
+        header_layout = BoxLayout(size_hint=(1, 0.1))
+        header_layout.add_widget(Button(text='Настройки', size_hint=(0.2, 1)))
+        header_layout.add_widget(Label(text='To Do Look', size_hint=(0.6, 1), halign='center'))
+        header_layout.add_widget(Button(text='', size_hint=(0.2, 1)))
+        layout.add_widget(header_layout)
+
+        # добавляем надпись "Настройки"
+        settings_label = Label(text='Настройки', size_hint=(1, 0.1), halign='center')
+        layout.add_widget(settings_label)
+
+        # добавляем кнопку "Выбрать тему"
+        theme_button = Button(text='Выбрать тему', size_hint=(1, 0.1))
+        layout.add_widget(theme_button)
+
+        # добавляем кнопку "Настроить размер текста"
+        font_size_button = Button(text='Настроить размер текста', size_hint=(1, 0.1))
+        layout.add_widget(font_size_button)
+
+        # добавляем кнопку "Настроить уведомления"
+        notifications_button = Button(text='Настроить уведомления', size_hint=(1, 0.1))
+        layout.add_widget(notifications_button)
+
+        # добавляем кнопку "Настроить громкость"
+        volume_button = Button(text='Настроить громкость', size_hint=(1, 0.1))
+        layout.add_widget(volume_button)
+
+        # добавляем кнопку "Вернуться назад"
+        back_button = Button(text='Вернуться назад', size_hint=(1, 0.1))
+        layout.add_widget(back_button)
+
+        return layout
+
+if __name__ == '__main__':
+    MyApp().run()
