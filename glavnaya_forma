@@ -1,0 +1,26 @@
+import kivy
+from kivy.app import App
+from kivy.uix.button import Button
+from kivy.uix.boxlayout import BoxLayout
+
+class MyApp(App):
+    def build(self):
+        # создаем вертикальный BoxLayout
+        layout = BoxLayout(orientation='vertical')
+
+        # добавляем кнопку "Настройки" в верхнюю часть
+        settings_button = Button(text='Настройки', size_hint=(1, 0.1))
+        layout.add_widget(settings_button)
+
+        # добавляем кнопку "Поиск"
+        search_button = Button(text='Поиск', size_hint=(1, 0.8))
+        layout.add_widget(search_button)
+
+        # добавляем кнопку "+" в правый нижний угол
+        add_button = Button(text='+', size_hint=(0.1, 0.1), pos_hint={'x': 0.9, 'y': 0})
+        layout.add_widget(add_button)
+
+        return layout
+
+if __name__ == '__main__':
+    MyApp().run()
