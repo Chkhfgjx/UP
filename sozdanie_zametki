@@ -1,0 +1,35 @@
+import kivy
+from kivy.app import App
+from kivy.uix.button import Button
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.label import Label
+from kivy.uix.textinput import TextInput
+
+class MyApp(App):
+    def build(self):
+        # создаем вертикальный BoxLayout
+        layout = BoxLayout(orientation='vertical')
+
+        # добавляем название приложения и кнопки "Сохранить" и "Отмена" в верхнюю часть
+        header_layout = BoxLayout(size_hint=(1, 0.1))
+        header_layout.add_widget(Button(text='Отмена', size_hint=(0.1, 1)))
+        header_layout.add_widget(Label(text='To Do Look', size_hint=(0.8, 1), halign='center'))
+        header_layout.add_widget(Button(text='Сохранить', size_hint=(0.1, 1)))
+        layout.add_widget(header_layout)
+
+        # добавляем поле для ввода категории
+        category_input = TextInput(hint_text='Категория', size_hint=(1, 0.1))
+        layout.add_widget(category_input)
+
+        # добавляем поле для ввода заголовка
+        title_input = TextInput(hint_text='Заголовок', size_hint=(1, 0.1))
+        layout.add_widget(title_input)
+
+        # добавляем поле для ввода текста
+        text_input = TextInput(hint_text='Введите текст', size_hint=(1, 0.7))
+        layout.add_widget(text_input)
+
+        return layout
+
+if __name__ == '__main__':
+    MyApp().run()
